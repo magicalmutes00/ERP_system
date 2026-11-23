@@ -17,7 +17,7 @@ export class StudentsController {
   constructor(private readonly studentsService: StudentsService) {}
 
   @Get()
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN, UserRole.FACULTY)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get all students' })
   async findAll(
@@ -52,7 +52,7 @@ export class StudentsController {
   }
 
   @Get(':id')
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN, UserRole.FACULTY)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get student by ID' })
   async findById(@Param('id') id: string) {
@@ -60,7 +60,7 @@ export class StudentsController {
   }
 
   @Get(':id/analytics')
-  @Roles(UserRole.ADMIN, UserRole.FACULTY)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get student analytics' })
   async getAnalytics(@Param('id') id: string) {
@@ -68,7 +68,7 @@ export class StudentsController {
   }
 
   @Post()
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create new student' })
   async create(@Body() data: any) {
@@ -76,7 +76,7 @@ export class StudentsController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update student' })
   async update(@Param('id') id: string, @Body() data: any) {
@@ -84,7 +84,7 @@ export class StudentsController {
   }
 
   @Delete(':id')
-  @Roles(UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete student' })
   async remove(@Param('id') id: string) {

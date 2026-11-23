@@ -46,7 +46,7 @@ export class AssignmentsController {
   }
 
   @Post()
-  @Roles(UserRole.ADMIN, UserRole.FACULTY)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create assignment' })
   async create(@Body() data: any) {
@@ -54,7 +54,7 @@ export class AssignmentsController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.ADMIN, UserRole.FACULTY)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update assignment' })
   async update(@Param('id') id: string, @Body() data: any) {
@@ -62,7 +62,7 @@ export class AssignmentsController {
   }
 
   @Delete(':id')
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete assignment' })
   async remove(@Param('id') id: string) {

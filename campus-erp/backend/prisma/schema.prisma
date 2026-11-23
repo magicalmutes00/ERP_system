@@ -13,6 +13,7 @@ datasource db {
 
 enum UserRole {
   SUPER_ADMIN
+  ADMIN
   FACULTY
   STUDENT
 }
@@ -188,6 +189,7 @@ model User {
   institution       Institution? @relation(fields: [institutionId], references: [id])
   student           Student?
   faculty           Faculty?
+  admin             Admin?
   notifications     Notification[]
   messagesSent      Message[]    @relation("sentMessages")
   chatParticipants  ChatParticipant[]
@@ -296,6 +298,22 @@ model Faculty {
   @@index([departmentId])
   @@index([userId])
   @@map("faculty")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  firstName String
+  lastName  String
+  phone     String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("admins")
 }
 
 // ============================================

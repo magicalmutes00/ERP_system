@@ -36,7 +36,6 @@ export class StudentsService {
       include: {
         user: true,
         department: true,
-        parent: true,
         enrollments: {
           include: {
             course: true,

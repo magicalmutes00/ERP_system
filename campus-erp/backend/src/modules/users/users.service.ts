@@ -55,7 +55,6 @@ export class UsersService {
         faculty: {
           include: { department: true },
         },
-        parent: true,
         admin: true,
       },
     });

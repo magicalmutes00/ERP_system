@@ -8,7 +8,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { StudentsModule } from './modules/students/students.module';
 import { FacultyModule } from './modules/faculty/faculty.module';
-import { ParentsModule } from './modules/parents/parents.module';
 import { DepartmentsModule } from './modules/departments/departments.module';
 import { CoursesModule } from './modules/courses/courses.module';
 import { AttendanceModule } from './modules/attendance/attendance.module';
@@ -70,7 +69,6 @@ import { PushModule } from './realtime/push/push.module';
     UsersModule,
     StudentsModule,
     FacultyModule,
-    ParentsModule,
     DepartmentsModule,
     CoursesModule,
     AttendanceModule,

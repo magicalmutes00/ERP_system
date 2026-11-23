@@ -14,7 +14,7 @@ export class FacultyController {
   constructor(private readonly facultyService: FacultyService) {}
 
   @Get()
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get all faculty' })
   async findAll(
@@ -88,7 +88,7 @@ export class FacultyController {
   }
 
   @Post()
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create new faculty' })
   async create(@Body() data: any) {
@@ -96,7 +96,7 @@ export class FacultyController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update faculty' })
   async update(@Param('id') id: string, @Body() data: any) {
@@ -104,7 +104,7 @@ export class FacultyController {
   }
 
   @Delete(':id')
-  @Roles(UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete faculty' })
   async remove(@Param('id') id: string) {

@@ -207,7 +207,6 @@ export class AuthService {
       include: {
         student: true,
         faculty: true,
-        parent: true,
         admin: true,
       },
     });

@@ -63,7 +63,7 @@ export class CoursesController {
   }
 
   @Post()
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create course' })
   async create(@Body() data: any) {
@@ -71,7 +71,7 @@ export class CoursesController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update course' })
   async update(@Param('id') id: string, @Body() data: any) {
@@ -79,7 +79,7 @@ export class CoursesController {
   }
 
   @Delete(':id')
-  @Roles(UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete course' })
   async remove(@Param('id') id: string) {

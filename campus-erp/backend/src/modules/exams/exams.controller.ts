@@ -45,7 +45,7 @@ export class ExamsController {
   }
 
   @Post()
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create exam' })
   async create(@Body() data: any) {
@@ -53,7 +53,7 @@ export class ExamsController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.ADMIN, UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update exam' })
   async update(@Param('id') id: string, @Body() data: any) {
@@ -61,7 +61,7 @@ export class ExamsController {
   }
 
   @Delete(':id')
-  @Roles(UserRole.SUPER_ADMIN)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete exam' })
   async remove(@Param('id') id: string) {
@@ -69,7 +69,7 @@ export class ExamsController {
   }
 
   @Post(':id/publish')
-  @Roles(UserRole.ADMIN, UserRole.FACULTY)
+  @Roles(UserRole.FACULTY, UserRole.ADMIN)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Publish exam results' })
   async publishResults(@Param('id') id: string) {
