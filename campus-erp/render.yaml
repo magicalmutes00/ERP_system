@@ -57,6 +57,7 @@ services:
     rootDir: web
     buildCommand: npm install && npm run build
     startCommand: npm start
+    staticPublishPath: .next
     envVars:
       - key: NEXT_PUBLIC_API_URL
         sync: false
