@@ -1,0 +1,39 @@
+# OSX
+.DS_Store
+
+# node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
+
+# Bundle artifacts
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/
+
+# Ruby / CocoaPods
+/ios/Podfile.lock
+
+# Expo
+.expo/
+
+# Metro
+.metro-health-check*
+
+# Testing
+/coverage
+
+# Logs
+*.log

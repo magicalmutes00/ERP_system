@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: campus-erp
+  labels:
+    name: campus-erp
+    environment: production
